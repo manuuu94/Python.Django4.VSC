@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+<!--load the static files-->
+{%load static %}
+
+{%block content%}
+
+<h1>this is the content in example2</h1>
+<img src="{% static 'my_app/django.png' %}" alt="no image">
+
+{% endblock %}

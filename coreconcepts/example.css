@@ -1,0 +1,40 @@
+h1{
+text-align: center;
+font-size:10em;
+font-family: "Lobster";
+color:rgb(255, 0, 0);
+background-color: black;
+border-color:orange;
+border-width:15px;
+border-style: dashed;
+
+
+}
+
+h2{
+    color:rgb(54, 10, 10);
+    background-color: aqua;
+    }
+
+.testclass{
+    color:orange;
+}
+
+#one{
+    color:blue;
+}
+#two{
+    color:gray;
+}
+
+#up{
+    text-align:center;
+    border:20px blue solid;
+}
+
+#down{
+    text-align:center;
+    border:20px red dashed;
+    padding-bottom:50px;
+    
+}

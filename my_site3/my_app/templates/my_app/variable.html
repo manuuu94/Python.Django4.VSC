@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user_logged_in %} 
+    <h1>Welcome {{first_name}} {{last_name}}</h1> 
+    <h1>VARIABLE.HTML</h1> 
+    <h2>First name: {{first_name|upper}}</h2>
+    <h3>Last name: {{last_name}}</h3> 
+    <h2>{{some_list}}</h2>
+    <h2>{{some_list.1}}</h2>
+    <h2>{{some_dict}}</h2>
+    <h2>{{some_dict.inside_key}}</h2>
+    <h2>{#this is a comment in django and html using py#}</h2> <!-- same as this -->
+
+    <ul>
+    {% for item in some_list %}
+    <li><h1>{{item}}</h1></li>
+    {% endfor %}
+    </ul>
+
+    <ul>
+        {% for k,v in some_dict.items %}
+        <li><h1>{{k}} : {{v}}</h1></li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+</body>
+</html>

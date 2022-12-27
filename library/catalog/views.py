@@ -22,7 +22,7 @@ def index(request):
     return render(request,'catalog/index.html',context=context)
 
 
-class BookCreate(CreateView): #model_form.html 
+class BookCreate(CreateView): #model_form.html the default is to go to the BookDetail page (create view below)
     model = Book
     fields = '__all__'
 

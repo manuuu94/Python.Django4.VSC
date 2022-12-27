@@ -23,5 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/',include('catalog.urls')),
     #to redirect from ' ' to the actual app
-    path('',RedirectView.as_view(url='catalog/'))
+    path('',RedirectView.as_view(url='catalog/')),
+    path('accounts/',include('django.contrib.auth.urls')) #urls set up in the actual source code of django.
+    #login,logout,password_change,password_change_done,password_reset,password_reset_done,password_reset_confirm,password_reset_complete 
+
 ]

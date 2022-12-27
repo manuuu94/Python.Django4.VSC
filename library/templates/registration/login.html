@@ -1,0 +1,22 @@
+{% if form.errors %}
+    <p>Your Username or password was incorrect. Try again.</p>
+{% endif %}
+
+{% if next %} <!--not authenticated or without permission to see the page (not logged in or only for admin)-->
+    {% if user.is_authenticated %}
+        <p>You dont have permission for this page.</p>
+        {% else %}
+        <p>Please login to see the page</p>
+    {% endif %}
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{form.username.label_tag}}
+    {{form.username}}
+    {{form.password.label_tag}}
+    {{form.password}}
+    <input type="Submit" value="Login">
+    <input type="hidden" name='next' value="{{next}}"> <!--send a next value to use in the IF and check if its actually logged in or has permission-->
+</form>

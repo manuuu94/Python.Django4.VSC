@@ -11,6 +11,17 @@
     <p>Total Books: {{num_books}}</p>
     <p>Num Available: {{num_instances_avail}}</p>
     
-    <a href="create_book/">Book Create</a>
+    <a href="create_book/">Add Book</a>
+    <a href="signup/">Create User</a>
+
+    {% if user.is_authenticated %}
+        <p>You are Logged in</p>
+        <p>Welcome: {{user.get_username}}</p>
+        <a href="{%url 'logout'%}?next={{request.path}}">Log out</a> <!-- Takes you to the home page OR asks to log back in if removed the next-->
+    {% else %}
+        <p>You are not Logged in</p>
+        <a href="{%url 'login'%}?next={{request.path}}">Log in</a>  <!--if you are not logged out you may log out-->
+    {% endif %}
+
 </body>
 </html>

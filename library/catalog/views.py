@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from .models import Book,Author,BookInstance,Genre,Language
 #class based view
-from django.views.generic import CreateView,DetailView
+from django.views.generic import CreateView,DetailView,ListView
 #decorators (required to login to access X page) @login_required in the function
 from django.contrib.auth.decorators import login_required
 #mixins for class based views to require to authenticate first
@@ -49,3 +49,14 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'catalog/signup.html'
+
+
+class CheckedOutBookByUserView(LoginRequiredMixin,ListView):
+    #list all instances but filter by current user session
+    model = BookInstance
+    template_name = 'catalog/profile.html'
+    paginate_by = 5 #5 book instances per page
+
+    def get_queryset(self):
+        #query that filters out that the borrower is equals to the request user.
+        return BookInstance.objects.filter(borrower=self.request.user)

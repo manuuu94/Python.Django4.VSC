@@ -1,5 +1,8 @@
 from django.db import models
 from django.urls import reverse
+#access to the user model
+from django.contrib.auth.models import User
+
 # Create your models here.
 class Genre(models.Model):
     name = models.CharField(max_length=150)
@@ -52,6 +55,8 @@ class BookInstance(models.Model):
     book = models.ForeignKey('Book',on_delete=models.RESTRICT,null=True)
     imprint = models.CharField(max_length=200)
     due_back = models.DateField(null=True,blank=True)
+    #links borrower and instance to a user as a foreign key
+    borrower = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True)
 
     LOAN_STATUS = (
         ('m','Maintenance'),

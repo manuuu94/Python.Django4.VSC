@@ -22,14 +22,22 @@ point1.move()
 #constructor is a function that gets called at the time of creating an object. parameters.
 
 class Person:
-    def __init__(self,name):
+    def __init__(self,name,last_name):
         self.name = name
+        self.last_name = last_name
+        
     def talk(self):
-        print(f"Hi, I am {self.name}")
+        print(f"Hi, I am {self.name} {self.last_name}")
+
+    
+    def __str__(self):
+        return f"{self.name} {self.last_name}. this is the str of the object, if you want to print it. Otherwise, you get only it's space in memry"
 
 
-manu = Person("Manu Gonzalez")
+
+manu = Person("Manu","Gonzalez")
 manu.talk()
+print(manu)
 
 #inheritance is a way to reuse code - dont repeat youself
 
@@ -40,7 +48,7 @@ class Mammal:
 
 
 class Dog(Mammal):
-    pass
+    pass  #inheritance is a way to reuse code - dont repeat youself
 
 
 class Cat(Mammal):

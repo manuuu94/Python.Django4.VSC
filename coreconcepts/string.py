@@ -215,6 +215,3 @@ print('Python' in course)
 
 
 
-
-
-

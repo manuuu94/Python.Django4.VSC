@@ -25,3 +25,14 @@ is_published = True
 full_name = 'John Smith'
 age = 20
 is_new = True
+
+
+
+articles = {
+    'Sports':'Sports Page!',
+    'Finance':'Finance Page!',
+    'Arts':'Arts Page!'
+}
+
+article = list(articles.keys())
+print(article[1])
